@@ -41,6 +41,14 @@ class Calculator {
     }
 
     chooseOperation(operation) {
+        if (this.currentOperation === "Erro") {
+            this.currentOperation = "";
+            this.previousOperation = "";
+            this.operation = undefined;
+            this.updateScreen();
+            return;
+        }
+
         if (this.currentOperation === "" && this.previousOperation !== "") {
             this.operation = operation;
             this.updateScreen();
