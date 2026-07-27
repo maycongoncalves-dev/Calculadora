@@ -12,6 +12,12 @@ class Calculator {
     }
 
     addDigit(digit) {
+        if (this.currentOperation === "Erro") {
+            this.currentOperation = digit;
+            this.updateScreen();
+            return;
+        }
+
         if (digit === "." && this.currentOperation.includes(".")) return;
         this.currentOperation = `${this.currentOperation}${digit}`;
         this.updateScreen();
